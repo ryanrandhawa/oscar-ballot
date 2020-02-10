@@ -1,13 +1,8 @@
-<p>List of categories</p>
-
-<ul *ngFor="let category of categories">
-  <li>{{category.title}}</li>
-</ul>
-
 <div *ngFor="let category of categories">
-  <h1>{{category.title}}</h1>
-  <div class="nomination" *ngFor="let nomination of category.nominations">
-    <p>{{ nomination.title }}</p>
-    <img [src]="nomination.imgUrl" height="200px" />
-  </div>
+  <h3>{{category.title}}</h3>
+  <select [(ngModel)]="category.selectedNominee">
+    <option *ngFor="let n of category.nominations" [ngValue]="n">
+      {{n.title}}
+    </option>
+  </select>
 </div>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NominationService } from '../nomination.service';
 import { ICategory } from '../nomination/category';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -8,19 +9,13 @@ import { ICategory } from '../nomination/category';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  categories: ICategory[];
+  @Input() categories: ICategory[];
   errorMessage: string;
 
-  constructor(private nominationService: NominationService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.nominationService.getCategories().subscribe({
-      next: categories =>
-      {
-        this.categories = categories;
-      },
-      error: err => this.errorMessage = err
-    });
+
   }
 
 }

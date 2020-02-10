@@ -1,1 +1,13 @@
-<app-categories></app-categories>
+<nav class='navbar navbar-expand navbar-light bg-light'>
+  <a class='navbar-brand'>{{title}}</a>
+  <ul class='nav nav-pills'>
+  <li><a class='nav-link' (click)="currentPage = 'ballot'">Create Ballot</a></li>
+  <li><a class='nav-link' (click)="currentPage = 'picks'">My Picks</a></li>
+</ul>
+</nav>
+<div class='container'>
+  <router-outlet></router-outlet>
+</div>
+
+<app-categories *ngIf="currentPage == 'ballot'" [categories]="categories"></app-categories>
+<app-mypicks *ngIf="currentPage == 'picks'" [categories]="categories"></app-mypicks>
