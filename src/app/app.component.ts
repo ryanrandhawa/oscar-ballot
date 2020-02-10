@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ICategory } from './nomination/category';
 import { NominationService } from './nomination.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   categories: ICategory[];
-  title = 'oscar-ballot';
+  title = 'Oscar Ballot';
   errorMessage: string;
   currentPage = 'ballot';
 
